@@ -20,6 +20,7 @@ public class Empleado implements Serializable {
     private Integer empId;
 
     @Column(name = "emp_cedula", length = 10, unique = true)
+    @Pattern(regexp = "^[0-9]{10}$", message = "La cedula ingresada no es correcta")
     private String empCedula;
 
     @NotNull(message = "Nombre requerido")
@@ -34,7 +35,7 @@ public class Empleado implements Serializable {
 
     @NotNull(message = "Correo es requerido")
     @Column(name = "emp_correo")
-    @Pattern(regexp = "^(?=.{1,64}@)[\\\\p{L}0-9_-]+(\\\\.[\\\\p{L}0-9_-]+)*@[^-][\\\\p{L}0-9-]+(\\\\.[\\\\p{L}0-9-]+)*(\\\\.[\\\\p{L}]{2,})$", message = "El correo ingresado no es correcto")
+    @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "El correo ingresado no es correcto")
     private String empCorreo;
 
     @Column(name = "emp_fecha_nacimiento")

@@ -9,6 +9,7 @@ import com.erosero.kruvacunas.modelDto.VacunaDto;
 import com.erosero.kruvacunas.repository.EmpleadoRepository;
 import com.erosero.kruvacunas.repository.TipoRolRepository;
 import com.erosero.kruvacunas.repository.TipoVacunaRepository;
+import com.erosero.kruvacunas.util.UtilsApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -36,7 +37,14 @@ public class EmpleadoService {
         return empleadoRepository.findAll();
     }
 
-    public Empleado crearEmpleado(EmpleadoDto empleado) {
+    public Empleado crearEmpleado(EmpleadoDto empleado) throws Exception {
+
+        if (empleado.getEmpCedula()!=null) {
+            Boolean cedulaValida = UtilsApi.validadorDeCedula(empleado.getEmpCedula());
+            if (!cedulaValida.booleanValue()) {
+                throw new Exception("La cédula ingresada no es una cedula valida");
+            }
+        }
 
         //creacion del usuario del empleado
         Usuario usuario = new Usuario();
@@ -75,6 +83,13 @@ public class EmpleadoService {
 
         if (empleado.getEmpVacunado() == true && (empleado.getVacunaList() == null || empleado.getVacunaList().size() == 0)) {
             throw new Exception("Debe Ingresar Informacion sobre sus vacunas");
+        }
+
+        if (empleado.getEmpCedula()!=null) {
+            Boolean cedulaValida = UtilsApi.validadorDeCedula(empleado.getEmpCedula());
+            if (!cedulaValida.booleanValue()) {
+                throw new Exception("La cédula ingresada no es una cedula valida");
+            }
         }
 
         empleadoEncontrado.setEmpNombre(
@@ -132,8 +147,13 @@ public class EmpleadoService {
     public List<Empleado> busquedaFiltros(Date fechaInicial,
                                           Date fechaFinal,
                                           Boolean vacunado,
-                                          Integer tipoVacuna){
-        return empleadoRepository.filtradoBusqueda(fechaInicial, fechaFinal, vacunado, tipoVacuna);
+                                          Integer tipoVacuna) throws Exception {
+        List<Empleado> empleadoList = empleadoRepository.filtradoBusqueda(fechaInicial, fechaFinal, vacunado, tipoVacuna);
+        if(empleadoList.isEmpty()){
+            throw new Exception("Sin resultados");
+        }
+
+        return empleadoList;
     }
 
 

@@ -1,7 +1,6 @@
 package com.erosero.kruvacunas.controller;
 
 import com.erosero.kruvacunas.entity.Empleado;
-import com.erosero.kruvacunas.entity.TipoVacuna;
 import com.erosero.kruvacunas.modelDto.EmpleadoDto;
 import com.erosero.kruvacunas.services.EmpleadoService;
 import com.erosero.kruvacunas.util.GenericResponse;
@@ -125,10 +124,10 @@ public class EmpleadoController {
     )
     @PostMapping("/filtrarEmpleados")
     public ResponseEntity<GenericResponse> filtrarEmpleados(
-                                           @RequestParam("fechaInicial") @DateTimeFormat(pattern="dd-MM-yyyy") Date fechaInicial,
-                                           @RequestParam("fechaFinal") @DateTimeFormat(pattern="dd-MM-yyyy") Date fechaFinal,
-                                           @RequestParam("vacunado") Boolean vacunado,
-                                           @RequestParam("tipoVacuna") Integer tipoVacuna) {
+                                           @RequestParam(value = "fechaInicial") @DateTimeFormat(pattern="dd-MM-yyyy") Date fechaInicial,
+                                           @RequestParam(value = "fechaFinal") @DateTimeFormat(pattern="dd-MM-yyyy") Date fechaFinal,
+                                           @RequestParam(value = "vacunado") Boolean vacunado,
+                                           @RequestParam(value = "tipoVacuna") Integer tipoVacuna) {
         GenericResponse<List<Empleado>> empleadoGR = new GenericResponse<>();
         try {
             empleadoGR.setObject(empleadoService.busquedaFiltros(fechaInicial, fechaFinal, vacunado, tipoVacuna));

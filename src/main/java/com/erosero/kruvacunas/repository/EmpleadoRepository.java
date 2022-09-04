@@ -16,8 +16,8 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Integer> {
     @Query(value = "select e " +
             "from Empleado e " +
             "inner join Vacuna v on v.empleado=e " +
-            "where e.empVacunado=:vacunado or v.vacTipoVacuna.tpVacId=:tipoVacuna " +
-            "or v.vacFecha BETWEEN :fechaInicial AND :fechaFinal")
+            "where e.empVacunado=:vacunado and v.vacTipoVacuna.tpVacId=:tipoVacuna " +
+            "and v.vacFecha BETWEEN :fechaInicial AND :fechaFinal")
     List<Empleado> filtradoBusqueda(Date fechaInicial,
                                     Date fechaFinal,
                                     Boolean vacunado,
