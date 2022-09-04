@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  basedatos:
+    build:
+      context: ./docker
+      dockerfile: basedatos.Dockerfile
+    container_name: basedatos
+    hostname: basedatos
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_DB: kruvacunas
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"
+  springboot-docker-container:
+    image: kruvacunas
+    container_name: kruvacunas
+    ports:
+      - "9100:9100"
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - basedatos
