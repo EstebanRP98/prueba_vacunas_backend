@@ -51,7 +51,6 @@ create table T_EMPLEADO(
 drop table if exists T_VACUNA;
 create table T_VACUNA(
 	"vac_id" serial not null,
-	"dos_numero" int not null,
 	"vac_tipo_vacuna_id" int not null,
 	"vac_fecha" timestamp not null,
 	"vac_numero_dosis" int not null,
