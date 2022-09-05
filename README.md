@@ -38,7 +38,7 @@ Para crear los contendedores se utilizo docker compose.
     
     **Pasos**
     1. Primero se procede a clonar el repositorio
-        https://github.com/EstebanRP98/prueba_ntt_backend.git
+        https://github.com/EstebanRP98/prueba_vacunas_backend.git
     2. Despues se procede a ingresar al proyecto y en la misma raiz del proyecto corremos el siguiente comando
         **docker-compose up -d** 
     3. Procedemos a Ingresar a swagger ui 3 mediante el siguiente link
