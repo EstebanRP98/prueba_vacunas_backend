@@ -20,6 +20,16 @@ public class Usuario {
     @JoinColumn(name = "user_tipo_rol_id", referencedColumnName = "tipo_rol_id")
     private TipoRol tipoRol;
 
+    public Usuario() {
+    }
+
+    public Usuario(Integer userId, String userUsername, String userPassword, TipoRol tipoRol) {
+        this.userId = userId;
+        this.userUsername = userUsername;
+        this.userPassword = userPassword;
+        this.tipoRol = tipoRol;
+    }
+
     public Integer getUserId() {
         return userId;
     }

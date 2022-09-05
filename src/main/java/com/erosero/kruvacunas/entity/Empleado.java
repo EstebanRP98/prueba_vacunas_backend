@@ -61,6 +61,23 @@ public class Empleado implements Serializable {
     @JoinColumn(name = "emp_user_id", referencedColumnName = "user_id")
     private Usuario usuario;
 
+    public Empleado() {
+    }
+
+    public Empleado(Integer empId, String empCedula, String empNombre, String empApellido, String empCorreo, Date empFechaNacimiento, String empDireccionDomicilio, String empTelefono, Boolean empVacunado, List<Vacuna> vacunaList, Usuario usuario) {
+        this.empId = empId;
+        this.empCedula = empCedula;
+        this.empNombre = empNombre;
+        this.empApellido = empApellido;
+        this.empCorreo = empCorreo;
+        this.empFechaNacimiento = empFechaNacimiento;
+        this.empDireccionDomicilio = empDireccionDomicilio;
+        this.empTelefono = empTelefono;
+        this.empVacunado = empVacunado;
+        this.vacunaList = vacunaList;
+        this.usuario = usuario;
+    }
+
     public Integer getEmpId() {
         return empId;
     }
