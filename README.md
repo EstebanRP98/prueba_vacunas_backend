@@ -42,5 +42,10 @@ Para crear los contendedores se utilizo docker compose.
     3. Procedemos a Ingresar a swagger ui 3 mediante el siguiente link
     http://localhost:9100/api/kruvacunas/swagger-ui/index.html?configUrl=/api/kruvacunas/v3/api-docs/swagger-config#
     4. Probar los endpoint generados para el proyecto.
+    5. Nota: Para probar los endpoint la clave como administrador es Usuario: ADMIN y password: ADMIN.<br/>
+    Los usuarios se genera el password todo en minusculas con el primer nombre + longitud del primer nombre + primer apellido, ejemplo Esteban David Rosero Perez, el password sera: <br/>
+    
+    **Password:** esteban7rosero
+    
 
 Gracias.
