@@ -74,4 +74,6 @@ INSERT INTO public.t_tipo_vacuna (tipo_vac_id, tipo_vac_descripcion) VALUES (1, 
 INSERT INTO public.t_tipo_vacuna (tipo_vac_id, tipo_vac_descripcion) VALUES (2, 'AstraZeneca');
 INSERT INTO public.t_tipo_vacuna (tipo_vac_id, tipo_vac_descripcion) VALUES (3, 'Pfizer');
 INSERT INTO public.t_tipo_vacuna (tipo_vac_id, tipo_vac_descripcion) VALUES (4, 'Jhonson&Jhonson');
+INSERT INTO public.t_usuario (user_id, user_username, user_password, user_tipo_rol_id) VALUES (2, 'eperez', 'david5perez', 2);
+INSERT INTO public.t_empleado (emp_id, emp_cedula, emp_nombre, emp_apellido, emp_correo, emp_fecha_nacimiento, emp_telefono, emp_direccion_domicilio, emp_vacunado, emp_user_id) VALUES (1, '1708306046', 'david alejandro', 'pinto perez', 'david@gmail.com', '2022-09-04 23:00:38.807000', '0992958166', 'Quito', true, 2);
 
