@@ -17,8 +17,8 @@
 ## Generacion del Proyecto
 - El proyecto esta basado en Maven, se procedio a crear la base de datos en postgresql mediante un script.
     Se creo el proyecto para poder llevar un inventario de empleados, y registrar su vacunacion:
-    * **ADMIN** Crear, buscar, eliminar y filtrar a los empleados.
-    * **USUARIO** Actualizar su informacion de las vacunas como la cantidad de dosis que posee.
+    * **ADMIN:** Crear, buscar, eliminar y filtrar a los empleados.
+    * **USUARIO:** Actualizar su informacion de las vacunas como la cantidad de dosis que posee.
     
 Para crear los contendedores se utilizo docker compose.
 
