@@ -43,6 +43,8 @@ Para crear los contendedores se utilizo docker compose.
     http://localhost:9100/api/kruvacunas/swagger-ui/index.html?configUrl=/api/kruvacunas/v3/api-docs/swagger-config#
     4. Probar los endpoint generados para el proyecto.
     5. Nota: Para probar los endpoint la clave como administrador es Usuario: ADMIN y password: ADMIN.<br/>
+    Los usuarios el username se le generara con la primera letra del nombre en minusculas y el apellido, <br/>
+    ejemplo Esteban David Rosero Perez, el **username** sera: erosero <br/>
     Los usuarios se genera el password todo en minusculas con el primer nombre + longitud del primer nombre + primer apellido, ejemplo Esteban David Rosero Perez, el password sera: <br/>
     
     **Password:** esteban7rosero
